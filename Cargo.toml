@@ -1,0 +1,53 @@
+[package]
+name = "greenski"
+version = "0.1.0"
+edition = "2024"
+description = "Lightweight WhatsApp linked-device send/receive daemon"
+license = "MIT"
+repository = "https://github.com/looskis/greenski"
+homepage = "https://github.com/looskis/greenski"
+readme = "README.md"
+rust-version = "1.85"
+
+[dependencies]
+anyhow = "1.0"
+async-stream = "0.3"
+async-trait = "0.1"
+axum = "0.8"
+bytes = "1.10"
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4.5", features = ["derive"] }
+dirs = "6.0"
+fs2 = "0.4"
+hex = "0.4"
+hmac = "0.12"
+libc = "0.2"
+libsql = "0.9.30"
+qrcode = "0.14"
+rand = "0.9"
+reqwest = { version = "0.12", features = ["blocking", "json", "stream"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+tokio = { version = "1.47", features = ["macros", "rt-multi-thread", "signal", "sync", "time", "net"] }
+toml = "0.9"
+tower-http = { version = "0.6", features = ["trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.18", features = ["v4", "serde"] }
+whatsapp-rust = { git = "https://github.com/jlucaso1/whatsapp-rust", rev = "4d9e8edb404c330ae49549416ea8773139a14df2", default-features = false, features = [
+    "sqlite-storage",
+    "tokio-transport",
+    "tokio-runtime",
+    "ureq-client",
+    "tokio-native",
+    "signal",
+] }
+
+[dev-dependencies]
+tempfile = "3.21"
+tower = { version = "0.5", features = ["util"] }
+
+[profile.release]
+lto = "thin"
+strip = true
