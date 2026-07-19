@@ -29,8 +29,8 @@ Install the current release with Homebrew:
 
 ```sh
 brew install looskis/tap/greenski
-greenski pair
 brew services start greenski
+greenski pair
 ```
 
 Or build from source:
@@ -46,9 +46,8 @@ is connected. Scan it from WhatsApp under **Settings → Linked Devices → Link
 Device**.
 
 `greenski install` installs its own per-user LaunchAgent. Do not use it at the
-same time as `brew services`; choose one supervisor. If pairing started a
-standalone daemon before you enable the Homebrew service, stop it with
-`greenski down` first.
+same time as `brew services`; choose one supervisor. Starting the Homebrew
+service before pairing lets `greenski pair` use the managed daemon.
 
 ## Use
 
