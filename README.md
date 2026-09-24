@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/greenski-icon.png" alt="Greenski logo" width="128" height="128">
+</p>
+
 # Greenski
 
 Greenski is a small WhatsApp linked-device daemon modeled after
